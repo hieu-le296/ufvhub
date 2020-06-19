@@ -1,0 +1,34 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section">
+    <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+        </div>
+    </div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Profile Info</legend>
+            {{ u_form|crispy }}
+            <div>
+                <p>Password: Click <a href="{% url 'password_change' %}">here </a> to change password</p>
+            </div>
+            {{ p_form|crispy }}
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Update</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div id="box">
+    <h6 style="text-align: center;">Beta</h6>
+    <button class="btn btn-light" onclick="swapStyles('light.css')">Light Mode</button>
+    <button class="btn btn-dark" onclick="swapStyles('dark.css')">Dark Mode</button>
+</div>
+
+{% endblock content %}
