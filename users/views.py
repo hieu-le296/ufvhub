@@ -86,4 +86,3 @@ def updateTheme(request):
     user.profile.save()
     print("Request:", theme)
     return JsonResponse("Updated..", safe=False)
-

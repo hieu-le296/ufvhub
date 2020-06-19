@@ -111,3 +111,9 @@ hr{
 	margin: 20px;
 	background-color: #eaeaea;
 }
+
+ .list-group-item {
+    background-color: #222831 !important;
+    border-color: gray;
+    color: #eaeaea;
+}
