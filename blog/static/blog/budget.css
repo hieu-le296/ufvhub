@@ -34,7 +34,7 @@
   
   .top {
     height: 40vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(back.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(bg.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -55,7 +55,7 @@
     margin-bottom: 10px;
     font-weight: 300;
   }
-  
+
   .budget__value {
     font-weight: 300;
     font-size: 46px;
@@ -91,7 +91,7 @@
   .budget__expenses--text {
     float: left;
     font-size: 13px;
-    color: #444;
+    color: white;
     margin-top: 2px;
   }
   
@@ -302,7 +302,7 @@
   }
   
   .bg-steel {
-    background-color: #5f788a;
+    background-color: #00703c;
   }
   
   .site-header .navbar-nav .nav-link {

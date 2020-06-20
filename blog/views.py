@@ -7,11 +7,11 @@ from django.views.generic import (
     DetailView,
     CreateView,
     UpdateView,
-    DeleteView,
+    DeleteView
 )
 from .models import Post, Comment
 from .forms import CommentForm
-
+from django.db.models import Q
 
 
 # def home(request):
@@ -45,6 +45,12 @@ class PostDetailView(DetailView):
     model = Post
     # <app>/<model>_<viewtype>.html
 
+    def get_object(self):
+        obj = super().get_object()
+        obj.blog_views += 1
+        obj.save()
+        return obj
+
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
@@ -53,7 +59,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         post = form.save(commit=False)
         post.author = self.request.user
-        #post.image = form.cleaned_data['image']
+        # post.image = form.cleaned_data['image']
         post.save()
         return redirect('blog-home')
 
@@ -123,6 +129,21 @@ def downvote_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.update_downvote()
     return redirect('post-detail', pk=post.pk)
+
+
+def search_posts(request):
+    if request.method == 'GET':
+        query = request.GET.get('q')
+
+        if query is not None:
+            lookups = Q(title__icontains=query) | Q(content__icontains=query) | Q(author__username__icontains=query)
+            results = Post.objects.filter(lookups).distinct()
+            return render(request, 'blog/search.html', {'results': results})
+        else:
+            return render(request, 'blog/search.html')
+
+    else:
+        return render(request, 'blog/search.html')
 
 
 def about(request):

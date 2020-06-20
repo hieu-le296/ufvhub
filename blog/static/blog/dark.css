@@ -53,6 +53,10 @@ a.article-title:hover {
   }
 
 
+.article-content {
+    white-space: pre-line;
+}
+
 .article-img {
     height: 65px;
     width: 65px;
@@ -139,3 +143,29 @@ hr{
 .votes {
     color: #eaeaea;
 }
+
+.btn-primary {
+    background-color: #7cb232;
+    border-radius: 8px;
+    border: 2px solid #7cb232;
+  }
+  
+  .btn-primary:hover {
+    background-color: #7cb232;
+    border-radius: 8px;
+    border: 2px solid #7cb232;
+  }
+  
+  .btn-danger {
+    border-radius: 8px;
+    border: 2px solid red;
+  }
+  
+  .comment {
+    color: #7cb232;
+    float: right;
+  }
+  
+  .comment:hover {
+    color: #7cb232;
+  }

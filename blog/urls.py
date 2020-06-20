@@ -21,6 +21,7 @@ urlpatterns = [
     path('comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
     path('post/<int:pk>/upvote', views.upvote_post, name='upvote_post'),
     path('post/<int:pk>/downvote', views.downvote_post, name='downvote_post'),
+    path('search/', views.search_posts, name='search_posts'),
     path('budget/', views.budget, name='budget'),
     path('about/', views.about, name='blog-about'),
 

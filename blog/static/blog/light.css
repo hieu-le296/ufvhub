@@ -63,8 +63,8 @@ hr{
     background: #ffffff;
     padding: 10px 20px;
     border: 1px solid #dddddd;
-	border-radius: 10px;
-	margin-bottom: 20px;
+	  border-radius: 10px;
+	  margin-bottom: 20px;
   }
   
   .article-title {
@@ -124,4 +124,30 @@ hr{
 
 .fa-check-circle {
   color: #00703c;
+}
+
+.btn-primary {
+  background-color: #7cb232;
+  border-radius: 8px;
+  border: 2px solid #7cb232;
+}
+
+.btn-primary:hover {
+  background-color: #7cb232;
+  border-radius: 8px;
+  border: 2px solid #7cb232;
+}
+
+.btn-danger {
+  border-radius: 8px;
+  border: 2px solid red;
+}
+
+.comment {
+  color: #7cb232;
+  float: right;
+}
+
+.comment:hover {
+  color: #7cb232;
 }
