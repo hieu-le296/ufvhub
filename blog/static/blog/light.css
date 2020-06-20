@@ -113,3 +113,15 @@ hr{
   .account-heading {
     font-size: 2.5rem;
   }
+
+  .comment {
+    margin: 20px 0px 20px 20px;
+}
+
+.fa-times-circle {
+  color: red;
+}
+
+.fa-check-circle {
+  color: #00703c;
+}

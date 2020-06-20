@@ -117,3 +117,21 @@ hr{
     border-color: gray;
     color: #eaeaea;
 }
+
+.comment {
+    color: #eaeaea;
+    margin: 20px 0px 20px 20px;
+}
+
+.fa-times-circle {
+    color: darkred;
+  }
+  
+  .fa-check-circle {
+    color: #00703c;
+  }
+
+.card .card-body {
+    background-color: #222831 !important;
+    color: #eaeaea;
+}
