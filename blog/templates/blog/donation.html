@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% load static %}
+
+<article style="text-align: center;" class="media content-section">
+    <div class="media-body">
+        <h2 class="article-title">Welcome to our Donation Page</h2>
+        <p class="article-content">Would you like to buy me a coffee? <i class="fas fa-mug-hot"></i></p>
+        <form action="{% url 'payment' %}" method="POST">
+        {% csrf_token %}
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key={{ public_key }}
+                data-amount="399" data-name="UFV Hub" data-description="Donation" data-image="{% static 'blog/default.jpg' %}" data-locale="auto"
+                data-currency='CAD' data-zip-code="true">
+            </script>
+        </form>  
+    </div>
+</article>
+
+{% endblock %}

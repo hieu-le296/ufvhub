@@ -70,7 +70,7 @@
                 {% block content %}{% endblock %}
             </div>
             <div class="col-md-4">
-                <div class="content-section">
+                <div style="text-align: center;" class="content-section">
                     <h3>Search</h3>
                     <p class='text-muted'>Search everything in UFV Hub.
                     <form action="{% url 'search_posts' %}" method="GET" value="{{request.GET.q}}">
@@ -79,6 +79,7 @@
                             style="font-size: 1.5em;"><i class="fas fa-search"></i></span></a>
                     </form>
                     </p>
+                    <p><a class="coffee" href="{% url 'donation' %}">Buy me a coffee </a><i class="fas fa-mug-hot"></i></p>
                 </div>
             </div>
         </div>

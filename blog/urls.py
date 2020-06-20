@@ -24,5 +24,7 @@ urlpatterns = [
     path('search/', views.search_posts, name='search_posts'),
     path('budget/', views.budget, name='budget'),
     path('about/', views.about, name='blog-about'),
-
+    path('donation/', views.donation, name='donation'),
+    path('payment/', views.payment, name='payment'),
+    path('thankyou/', views.thank_you, name='thank_you'),
 ]

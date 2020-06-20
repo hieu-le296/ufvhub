@@ -68,7 +68,7 @@ hr{
   }
   
   .article-title {
-    color: #444444;
+    color: #7cb232;
   }
   
   a.article-title:hover {
@@ -149,5 +149,14 @@ hr{
 }
 
 .comment:hover {
+  color: #7cb232;
+}
+
+
+.coffee {
+  color: #7cb232;
+}
+
+.coffee:hover {
   color: #7cb232;
 }

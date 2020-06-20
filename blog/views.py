@@ -12,6 +12,14 @@ from django.views.generic import (
 from .models import Post, Comment
 from .forms import CommentForm
 from django.db.models import Q
+import stripe
+from django.views.decorators.csrf import csrf_exempt
+from django.templatetags.static import static
+
+
+
+public_key = 'pk_test_TYooMQauvdEDq54NiTphI7jx'
+stripe.api_key = "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
 
 
 # def home(request):
@@ -147,4 +155,31 @@ def search_posts(request):
 
 
 def about(request):
-    return render(request, "blog/about.html", {"title": "About"})
+    return render(request, 'blog/about.html', {'title': 'About'})
+
+
+def thank_you(request):
+    return render(request, 'blog/thank_you.html')
+
+@csrf_exempt
+def donation(request):
+    return render(request, 'blog/donation.html', {'public_key': public_key})
+
+
+@csrf_exempt
+def payment(request):
+    # Customer Info
+    if request.method == 'POST':
+        customer = stripe.Customer.create(
+            email=request.GET.get('stripeEmail'), source=request.GET.get('stripeToken'))
+
+        # Payment Information
+        charge = stripe.PaymentIntent.create(
+            customer=customer.id,
+            amount=399,
+            currency="CAD",
+            payment_method_types=['card'],
+            description='Donation'
+        )
+        return redirect('thank_you')
+    return redirect('thank_you')
