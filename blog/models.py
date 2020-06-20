@@ -9,6 +9,8 @@ class Post(models.Model):
     content = models.TextField()
     date_posted = models.DateField(default=timezone.now)
     image = models.ImageField(null=True, blank=True, upload_to='images/')
+    upvotes = models.IntegerField(default=0)
+    downvotes = models.IntegerField(default=0)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
@@ -22,6 +24,22 @@ class Post(models.Model):
 
     def approved_comments(self):
         return self.comments.filter(approved_comment=True)
+    
+    def update_upvote(self):
+        self.upvotes = self.upvotes + 1
+        self.save()
+
+    def update_downvote(self):
+        self.downvotes = self.downvotes + 1
+        self.save()
+
+    @property
+    def get_upvotes(self):
+        return self.upvotes
+    
+    @property
+    def get_downvotes(self):
+        return self.downvotes
 
 
 class Comment(models.Model):

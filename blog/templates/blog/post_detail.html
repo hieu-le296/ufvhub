@@ -27,6 +27,10 @@
             {% endif %}
         </div>
     </div>
+    <div style="float: right;">
+        <p class="votes"><a class="btn btn-default" href="{% url 'upvote_post' pk=post.pk %}"><span style="font-size: 1.5em;"><i class="fas fa-thumbs-up"></i></span></a>{{ post.get_upvotes }}
+        <a class="btn btn-default" href="{% url 'downvote_post' pk=post.pk %}"><span style="font-size: 1.5em;"><i class="fas fa-thumbs-down"></i></span></a>{{ post.get_downvotes }}</p>
+    </div>
 </article>
 <hr>
 <div>

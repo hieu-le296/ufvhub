@@ -112,5 +112,18 @@ def comment_remove(request, pk):
     return redirect('post-detail', pk=comment.post.pk)
 
 
+def upvote_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.update_upvote()
+    print(post.get_upvotes)
+    return redirect('post-detail', pk=post.pk)
+
+
+def downvote_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.update_downvote()
+    return redirect('post-detail', pk=post.pk)
+
+
 def about(request):
     return render(request, "blog/about.html", {"title": "About"})
