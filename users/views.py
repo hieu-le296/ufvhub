@@ -19,7 +19,7 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get("username")
-            messages.success(request, f"Your account {username} has been created!")
+            messages.success(request, f"Your account {username} has been created!", extra_tags='alert')
             return redirect("login")
     else:
         form = UserRegisterForm()
@@ -38,7 +38,7 @@ def profile(request):
             u_form.save()
             p_form.save()
             username = u_form.cleaned_data.get("username")
-            messages.success(request, f"Your account {username} has been updated!")
+            messages.success(request, f"Your account {username} has been updated!", extra_tags='alert')
             return redirect("profile")
 
     else:
@@ -55,10 +55,10 @@ def change_password(request):
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user)
-            messages.success(request, "Your password has been updated!")
+            messages.success(request, "Your password has been updated!", extra_tags='alert')
             return redirect("profile")
         else:
-            messages.error(request, "Please correct the error below.")
+            messages.error(request, "Please correct the error below.", extra_tags='alert')
     else:
         form = UserChangePasswordForm(request.user)
 

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+from django.contrib.messages import constants as messages
 import os
 import django_heroku
 
@@ -26,7 +27,7 @@ SECRET_KEY = '@f23=5qcn^(40&secyk!)3hxe=ucm&hau35^zu&4k5+^g0_15c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ufvhub.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -143,5 +144,13 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'techtalks.flaskblog@gmail.com'
 EMAIL_HOST_PASSWORD = 'ngryuulusjzwtafo'
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
 
 django_heroku.settings(locals())

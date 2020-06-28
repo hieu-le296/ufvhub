@@ -14,8 +14,7 @@ from .forms import CommentForm
 from django.db.models import Q
 import stripe
 from django.views.decorators.csrf import csrf_exempt
-from django.templatetags.static import static
-
+from django.contrib import messages
 
 
 public_key = 'pk_test_TYooMQauvdEDq54NiTphI7jx'
@@ -114,18 +113,31 @@ def add_comment_to_post(request, pk):
 
 @login_required
 def comment_approve(request, pk):
+    user = request.user
     comment = get_object_or_404(Comment, pk=pk)
-    comment.approve()
+    if user.id == comment.post.author.id:
+        comment.approve()
+        messages.success(request, 'Comment approved', extra_tags='alert')
+    else:
+        messages.error(request, 'You need to be the post author!', extra_tags='alert')
     return redirect('post-detail', pk=comment.post.pk)
 
 
 @login_required
 def comment_remove(request, pk):
+    user = request.user
     comment = get_object_or_404(Comment, pk=pk)
-    comment.delete()
+    if user.id == comment.post.author.id:
+        comment.delete()
+        messages.success(request, 'Comment removed', extra_tags='alert')
+        return redirect('post-detail', pk=comment.post.pk)
+
+    else:
+        messages.error(request, 'You need to be the post author!', extra_tags='alert')
     return redirect('post-detail', pk=comment.post.pk)
 
 
+@login_required()
 def upvote_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.update_upvote()
@@ -133,6 +145,7 @@ def upvote_post(request, pk):
     return redirect('post-detail', pk=post.pk)
 
 
+@login_required
 def downvote_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.update_downvote()
