@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+       
+    <meta charset="UTF-8">
+       
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Resume</title>
+    <style>
+        .content {
+            white-space: pre-line;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <h2>{{ user_resume.name }}</h2>
+        <h2>{{ user_resume.email }}</h2>
+        <h2>{{ user_resume.phone }}</h2>
+    </div>
+    
+    <hr>
+    <br>
+    <h4>Summary</h4>
+    <p class="content">{{ user_resume.summary }}</p>
+    <hr>
+    <h4>Skills</h4>
+    <p class="content">{{ user_resume.skills }}</p>
+    <hr>
+    <h4>Education</h4>
+    <ul>
+        <li>Schooling: {{ user_resume.school }}</li>
+        <li>{{ user_resume.degree }} from {{ user_resume.university }}</li>
+    </ul>
+    <hr>
+    <h4>Previous Work</h4>
+    <p class="content">{{ user_resume.previous_work }}</p>
+</body>

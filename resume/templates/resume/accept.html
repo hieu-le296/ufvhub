@@ -1,0 +1,83 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section">
+          <div>
+              <h2 style="text-align: center;">Resume Generator</h2>
+              <hr>
+          </div>
+            <div class="row md-5">
+                <div class="col-md-10">
+               <h4 style="text-align: center;">Please fill out your details</h4>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                          <p style="float: left;">
+                            <label for="">Name</label>
+                          </p>
+                          <input placeholder="Eg John Cena" type="text" class="form-control" id="name" name="name">
+                        </div>
+                
+                        <div class="form-group">
+                            <p style="float: left;">
+                               <label for="">Email</label>
+                            </p>
+                            <input placeholder="Eg john.cena@student.ufv.ca" type="text" class="form-control" id="email" name="email">
+                        </div>
+                
+                          <div class="form-group">
+                            <p style="float: left;">
+                                <label for="">Phone</label>
+                            </p>
+                            <input placeholder="Eg 604-888-911" type="text" class="form-control" id="phone" name="phone">
+                          </div>
+                
+                          <div class="form-group">
+                            <p style="float: left;">
+                                <label for="">About You</label>
+                            </p>
+                            <textarea placeholder="Write something about you" type="text" class="form-control" id="summary" name="summary"></textarea>
+                          </div>
+                        
+                          <div class="form-group">
+                            <p style="float: left;">
+                                <label for="">Degree</label>
+                            </p>
+                            <input placeholder="Bachelor of Information System" type="text" class="form-control" id="degree" name="degree">
+                          </div>
+                
+                          <div class="form-group">
+                            <p style="float: left;">
+                                <label for="">School</label>
+                            </p>
+                           <input placeholder="Abbotsford Senior Secondary School" type="text" class="form-control" id="school" name="school">
+                          </div>
+                
+                
+                          <div class="form-group">
+                            <p style="float: left;">
+                                <label for="">University</label>
+                            </p>              
+                            <input placeholder="University of the Fraser Valley" type="text" class="form-control" id="university" name="university">
+                          </div>
+                
+                          <div class="form-group">
+                            <p style="float: left;">
+                                <label for="">Previous Work</label>
+                            </p>
+                            <textarea placeholder="Your work experience. Press Enter to next line" type="text" class="form-control" id="previous_work" name="previous_work"></textarea>
+                          </div>
+                
+                          <div class="form-group">
+                            <p style="float: left;">
+                                <label for="">Skills</label>
+                            </p>
+                            <textarea placeholder="eg Microsoft Office, Communication,.." type="text" class="form-control" id="skills" name="skills"></textarea>
+                          </div>
+                       
+                        <button type="submit" class="btn btn-primary">Generate Resume</button>
+                      </form>
+                </div>
+            </div>
+</div>
+{% endblock content %}

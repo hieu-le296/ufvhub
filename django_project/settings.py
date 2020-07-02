@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
+    'resume.apps.ResumeConfig',
     'crispy_forms',
     # Clean up user images when they are updated
     'django_cleanup',

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from users import views as users_views
+from resume import views as resume_views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -66,6 +67,8 @@ urlpatterns = [
     path("summernote/", include('django_summernote.urls')),
     path("user_settings/", users_views.userSettings, name="user_settings"),
     path("update_theme/", users_views.updateTheme, name="update_theme"),
+    path('resume/', resume_views.accept, name='generate_resume'),
+    path('resume/<int:id>/', resume_views.generate_pdf, name='resume'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
