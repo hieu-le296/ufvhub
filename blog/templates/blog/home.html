@@ -1,5 +1,6 @@
 {% extends "blog/base.html" %}
-
+{% load static %}
+{{ form.media }}
 {% block content %}
 
 {% for post in posts %}
@@ -12,7 +13,7 @@
             <small class="text-muted"><span style="font-size: 1.5em;"><i class="far fa-eye"></i></span> {{ post.get_blogviews }}</small>
         </div>
         <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-        <p class="article-content">{{ post.content|truncatewords:50 }}</p>
+        <p class="article-content">{{ post.content|safe|truncatewords:50 }}</p>
         <a class="comment" href="{% url 'post-detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
     </div>
 </article>

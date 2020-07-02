@@ -10,11 +10,12 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 from django.db.models import Q
 import stripe
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
+from django_summernote.widgets import SummernoteInplaceWidget
 
 
 public_key = 'pk_test_TYooMQauvdEDq54NiTphI7jx'
@@ -61,8 +62,9 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ["title", "content", "image"]
-
+    template_name = 'blog/post_form.html'
+    form_class = PostForm
+    
     def form_valid(self, form):
         post = form.save(commit=False)
         post.author = self.request.user
@@ -73,7 +75,8 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ["title", "content", 'image']
+    template_name = 'blog/post_form.html'
+    form_class = PostForm
 
     def form_valid(self, form):
         form.instance.author = self.request.user

@@ -63,10 +63,9 @@ urlpatterns = [
         name="password_reset_complete",
     ),
     path("", include("blog.urls")),
+    path("summernote/", include('django_summernote.urls')),
     path("user_settings/", users_views.userSettings, name="user_settings"),
     path("update_theme/", users_views.updateTheme, name="update_theme"),
 ]
 
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

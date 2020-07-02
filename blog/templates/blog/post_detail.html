@@ -1,5 +1,6 @@
 {% extends "blog/base.html" %}
 {% load static %}
+{{ form.media }}
 
 {% block content %}
 
@@ -17,22 +18,20 @@
             </div>
             {% endif %}
         </div>
-        <h2 class="article-title">{{ object.title }}</h2>
-        <div class="article-content">
-            {% if object.image %}
-            <img style="max-width: 100%; height: auto;" src="{{ object.image.url }}">
-            <br>
-            <p>{{ object.content }}</p>
-            {% else %}
-            <p>{{ object.content }}</p>
-            {% endif %}
+        <div class="media-content">
+            <h2 class="article-title">{{ object.title }}</h2>
+            <p class="article-content">{{ object.content|safe }}</p>
         </div>
+        
+        
     </div>
     <div style="float: right;">
         <p class="votes"><a class="btn btn-default" href="{% url 'upvote_post' pk=post.pk %}"><span style="font-size: 1.5em;"><i class="fas fa-thumbs-up"></i></span></a>{{ post.get_upvotes }}
         <a class="btn btn-default" href="{% url 'downvote_post' pk=post.pk %}"><span style="font-size: 1.5em;"><i class="fas fa-thumbs-down"></i></span></a>{{ post.get_downvotes }}</p>
     </div>
 </article>
+
+
 <hr>
 <div>
     <a class="btn btn-secondary" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
@@ -55,13 +54,20 @@
                 {% endif %}
             </div>
             <p class="card-title"> <strong>{{ comment.author }} </strong> says:</p>
-            <p class="card-text">{{ comment.text|linebreaks }}</p>
+            <div class="card-text">
+                <p class="article-content">{{ comment.text|safe|linebreaks }}</p>
+            </div>
             {% endif %}
         </div>
     </div>
     <br>
     {% empty %}
-    <p>No comments here yet :(</p>
+    <article class="media content-section">
+        <div class="media-body">
+            <p>No comments here yet :(</p>
+
+        </div>
+    </article>
     {% endfor %}
 </div>
 
