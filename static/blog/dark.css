@@ -1,0 +1,171 @@
+body{
+	background-color: rgb(36, 41, 46) !important;
+	margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6, legend, label {
+	color: #fff;
+}
+
+ul {
+    margin: 0;
+}
+
+p, span, small{
+	color: #eaeaea;
+}
+
+#text {
+	color: #eaeaea;
+}
+
+.bg-steel {
+    background-color: #30475e;
+  }
+
+.site-header .navbar-nav .nav-link {
+    color: #cbd5db;
+}
+  
+.site-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+}
+  
+.site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+}
+
+.content-section {
+	background-color: #222831 !important;
+	padding: 10px 20px;
+    border: 1px solid #dddddd;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
+.article-title {
+    color: #7cb232;
+  }
+  
+a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+  }
+
+
+.article-content {
+    white-space: pre-line;
+}
+
+.article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+}
+  
+.article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3
+}
+  
+.article-metadata a:hover {
+    color: #333;
+    text-decoration: none;
+  }
+  
+.article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+  
+.account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+}
+  
+.account-heading {
+    font-size: 2.5rem;
+}
+
+#box{
+	width: 400px;
+	margin: 0 auto;
+	margin-top: 100px;
+	border: 2px solid rgb(24, 26, 31);
+	border-radius: 5px;
+	text-align: center;
+	padding: 20px;
+	background-color: rgb(49, 54, 63) !important;
+}
+
+#profile_pic{
+	display: block;
+	border-radius: 50%;
+	margin: 10px auto;
+	width: 200px;
+	border: 2px solid rgb(24, 26, 31);
+
+}
+
+hr{
+	margin: 20px;
+	background-color: #eaeaea;
+}
+
+ .list-group-item {
+    background-color: #222831 !important;
+    border-color: gray;
+    color: #eaeaea;
+}
+
+.comment {
+    color: #eaeaea;
+    margin: 20px 0px 20px 20px;
+}
+
+.fa-times-circle {
+    color: darkred;
+  }
+  
+  .fa-check-circle {
+    color: #00703c;
+  }
+
+.card .card-body {
+    background-color: #222831 !important;
+    color: #eaeaea;
+}
+
+.votes {
+    color: #eaeaea;
+}
+
+.btn-primary {
+    background-color: #7cb232;
+    border-radius: 8px;
+    border: 2px solid #7cb232;
+  }
+  
+  .btn-primary:hover {
+    background-color: #7cb232;
+    border-radius: 8px;
+    border: 2px solid #7cb232;
+  }
+  
+  .btn-danger {
+    border-radius: 8px;
+    border: 2px solid red;
+  }
+  
+  .comment {
+    color: #7cb232;
+    float: right;
+  }
+  
+  .comment:hover {
+    color: #7cb232;
+  }

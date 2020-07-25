@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@f23=5qcn^(40&secyk!)3hxe=ucm&hau35^zu&4k5+^g0_15c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['ufvhub.pythonanywhere.com']
 
 
 # Application definition
@@ -177,7 +177,7 @@ SUMMERNOTE_CONFIG = {
 
         # Use proper language setting automatically (default)
         'lang': None,
-        
+
         # Toolbar customization
         # https://summernote.org/deep-dive/#custom-toolbar-popover
         'toolbar': [
