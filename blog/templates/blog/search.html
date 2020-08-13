@@ -13,11 +13,9 @@
                 <div class="article-metadata">
                     <a class="mr-2" href="{% url 'user-posts' result.author.username %}">{{ result.author }}</a>
                     <small class="text-muted">{{ result.date_posted|date:"F d, Y" }}</small>
-                    <small class="text-muted"><span style="font-size: 1.5em;"><i class="far fa-eye"></i></span> {{ result.get_blogviews }}</small>
                 </div>
                 <h2><a class="article-title" href="{% url 'post-detail' result.id %}">{{ result.title }}</a></h2>
-                <p class="article-content">{{ result.content|truncatewords:50 }}</p>
-                <a href="{% url 'post-detail' pk=result.pk %}">Comments: {{ result.approved_comments.count }}</a>
+               
             </div>
         </article>
         {% endfor %}
