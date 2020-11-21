@@ -28,7 +28,7 @@ lazy-object-proxy==1.4.3
 mccabe==0.6.1
 pathspec==0.8.0
 pdfkit==0.6.1
-Pillow==7.1.2
+Pillow
 psycopg2==2.8.5
 pycodestyle==2.6.0
 pycparser==2.20
@@ -38,7 +38,7 @@ PyPDF2==1.26.0
 Pyphen==0.9.5
 pytz==2020.1
 regex==2020.6.7
-reportlab==3.5.44
+# reportlab==3.5.44
 requests==2.24.0
 six==1.15.0
 sqlparse==0.3.1

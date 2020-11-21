@@ -32,7 +32,6 @@ def accept(request):
     return render(request, 'resume/accept.html')
 
 
-
 def generate_pdf(request, id):
     # Model data
     user_resume = Resume.objects.get(pk=id)
